@@ -1,0 +1,19 @@
+﻿@model ANTOURA.Models.Agenda
+
+<div class="agenda">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m=>m.id)
+        <div class="agenda1">
+                @Html.LabelFor(m => m.description)
+                <div class="agenda1">
+                    @Html.TextBoxFor(m => m.description)
+                    @Html.ValidationMessageFor(m => m.description)
+                </div>
+            </div>
+
+       <button  type="submit">Enregistrer</button>
+            
+    }
+</div>

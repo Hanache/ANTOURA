@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ANTOURA" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=HANACH;Initial Catalog=ANTOURA;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ANTOURAConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.webpages_UsersInRoles" Member="webpages_UsersInRoles">
+    <Type Name="webpages_UsersInRole">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="webpages_Role_webpages_UsersInRole" Member="webpages_Role" ThisKey="RoleId" OtherKey="RoleId" Type="webpages_Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssocClassSection" Member="AssocClassSections">
+    <Type Name="AssocClassSection">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idClass" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="AssocClassSection_AssocTeacherCourse" Member="AssocTeacherCourses" ThisKey="id" OtherKey="idClassSection" Type="AssocTeacherCourse" />
+      <Association Name="Class_AssocClassSection" Member="Class" ThisKey="id" OtherKey="id" Type="Class" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AssocTeacherCourse" Member="AssocTeacherCourses">
+    <Type Name="AssocTeacherCourse">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTeacher" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCourse" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idClassSection" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AssocTeacherCourse_Agenda" Member="Agendas" ThisKey="id" OtherKey="idAssTeacherCourse" Type="Agenda" />
+      <Association Name="AssocTeacherCourse_Examen" Member="Examens" ThisKey="id" OtherKey="idAssocTeacherCourse" Type="Examen" />
+      <Association Name="AssocClassSection_AssocTeacherCourse" Member="AssocClassSection" ThisKey="idClassSection" OtherKey="id" Type="AssocClassSection" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Class" Member="Classes">
+    <Type Name="Class">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="description2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cycle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Class_AssocClassSection" Member="AssocClassSection" ThisKey="id" OtherKey="id" Type="AssocClassSection" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Period" Member="Periods">
+    <Type Name="Period">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="day" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fromHour" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="toHour" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="year" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SysParamLov" Member="SysParamLovs">
+    <Type Name="SysParamLov">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lang" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="code" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.webpages_Membership" Member="webpages_Memberships">
+    <Type Name="webpages_Membership">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConfirmationToken" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsConfirmed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastPasswordFailureDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PasswordFailuresSinceLastSuccess" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordChangedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordVerificationToken" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="PasswordVerificationTokenExpirationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.webpages_Roles" Member="webpages_Roles">
+    <Type Name="webpages_Role">
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="webpages_Role_webpages_UsersInRole" Member="webpages_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="webpages_UsersInRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Agenda" Member="Agendas">
+    <Type Name="Agenda">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idAssTeacherCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="dateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AssocTeacherCourse_Agenda" Member="AssocTeacherCourse" ThisKey="idAssTeacherCourse" OtherKey="id" Type="AssocTeacherCourse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExamenGrades" Member="ExamenGrades">
+    <Type Name="ExamenGrade">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idExamen" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idStudent" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="grade" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Examen_ExamenGrade" Member="Examen" ThisKey="idExamen" OtherKey="id" Type="Examen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Examen" Member="Examens">
+    <Type Name="Examen">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idAssocTeacherCourse" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dateCreated" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dateModified" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="overGrade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Examen_ExamenGrade" Member="ExamenGrades" ThisKey="id" OtherKey="idExamen" Type="ExamenGrade" />
+      <Association Name="AssocTeacherCourse_Examen" Member="AssocTeacherCourse" ThisKey="idAssocTeacherCourse" OtherKey="id" Type="AssocTeacherCourse" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

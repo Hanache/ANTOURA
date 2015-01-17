@@ -1,0 +1,18 @@
+﻿@model IQueryable<ANTOURA.Models.Examen>
+<div class="agenda">
+    <a style="color:#fff" href="@Url.Content("~/Examen/Create")">Ajouter</a>
+    <table border="1" cellpadding="6">
+        <tr><th>DATE</th><th>TITRE</th><th>NOTE MAXIMALE</th><th></th></tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a style="color:#fff" href="@Url.Content("~/Examen/Edit/" + item.id)">@item.dateCreated</a></td>
+                <td>@item.title</td>
+                <td>@item.overGrade</td>
+
+                <td><a style="color:#fff" href="@Url.Content("~/Examen/Delete/" + item.id)">Effacer</a></td>
+            </tr>
+        }
+
+    </table>
+</div>

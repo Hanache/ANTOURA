@@ -1,0 +1,18 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    var action = ViewContext.RouteData.Values["action"].ToString().ToLower();
+    var loggedUser = (ANTOURA.Models.webpages_Membership)ViewBag.LoggedUser;
+}
+
+<div class="welcome">
+    Bienvenue, @(loggedUser.FirstName + " " + loggedUser.LastName ) | 
+</div>
+<div>
+    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {@Html.AntiForgeryToken()
+
+
+        <a class="welcomea" href="javascript:document.getElementById('logoutForm').submit()">SIGN OUT</a>
+
+    }
+</div>

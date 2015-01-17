@@ -1,0 +1,24 @@
+﻿@model ANTOURA.Models.Agenda
+
+<div class="agenda">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <table class="createt" border="1" cellpadding="5">
+    <tr><th>DATE</th><th>AGENDA</th><th></th></tr>
+    <tr>
+        <td>@DateTime.Today.Date.ToString("dd/MM/yyyy")</td>
+        <td>@Html.TextBoxFor(m => m.description)
+            @Html.ValidationMessageFor(m => m.description)
+        </td>
+        
+        <td><button  type="submit">Enregistrer</button></td>
+       
+    </tr>
+   
+
+</table>
+       
+            
+    }
+</div>

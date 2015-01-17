@@ -1,0 +1,16 @@
+﻿@model IQueryable<ANTOURA.Models.Agenda>
+<div class="agenda">
+    <a style="color:#fff" href="@Url.Content("~/Agenda/Create")">Ajouter</a>
+    <table border="1" cellpadding="6">
+        <tr><th>DATE</th><th>DESCRIPTION</th><th></th></tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a style="color:#fff" href="@Url.Content("~/Agenda/Edit/" + item.id)">@item.dateCreated</a></td>
+                <td>@item.description</td>
+                <td><a style="color:#fff" href="@Url.Content("~/Agenda/Delete/"+item.id)">Effacer</a></td>
+            </tr>
+        }
+
+    </table>
+</div>

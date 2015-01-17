@@ -1,0 +1,248 @@
+﻿html,body,table {
+	margin:0px;
+	background: #0A73A4;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+}
+
+
+ a:link, a:visited {
+
+
+
+}
+
+ a:hover, a:active {
+   
+
+  
+
+}	
+
+.wrapper{
+
+	position:relative;
+	display:block;
+	width:1000px;
+	margin:0 auto;
+	
+	}
+	 
+.mainheader {
+	position:relative;
+	display:block;
+	height:122px;
+	
+	 }
+
+.logosis {
+	position:absolute;
+    top: 11px;
+	left:35px;
+}
+
+.logoantoura {
+	position:absolute;
+	right:102px;
+	top:0px;
+}
+
+	
+.language {
+	position:absolute;
+	font-size:12px;
+	right:22px;
+	top:89px;
+	
+	}
+
+.content{
+    position:relative;
+	display:block;
+    min-height:523px;
+    background-color:#0A4671;
+	}
+
+
+     .leftcontent{
+position: relative;
+display: inline-block;
+width: 271px;
+min-height: 523px;
+border-right: 1px solid #0A73A4;
+    
+}
+
+
+    /*accordion header*/
+.class {
+    position: relative;
+     display:block;
+    color:#ffffff;
+    margin-left: 35px;
+    margin-top: 50px;
+    float:left;
+   }
+    .class h3{
+         
+         border: #0A4671;
+         font-size: 17px;
+         font-family: 'Aurora BdCn BT';
+         font-weight: 100;
+         color:#ffffff;
+      
+
+        
+    }
+    .ui-accordion-header{
+      
+        background:#0A4671;
+       
+    }
+    
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+}
+    .ui-accordion .ui-accordion-header {
+
+	cursor: pointer;
+	position: relative;
+	min-height: 0; /* support: IE7 */
+}
+.ui-accordion .ui-accordion-icons {
+    
+	padding-left: 30px;
+    padding-top:7px;
+}
+
+
+    /*end accordion header*/
+
+
+    /*accordion*/
+    .defaultIcon
+    {
+        background-image: url(images/DROPB2.png) !important;
+        width: 22px;
+        height: 23px;
+
+    }
+    .selectedIcon
+    {
+        background-image: url(images/DROPB1.png) !important;
+        width: 22px;
+        height: 23px;
+
+    } 
+    .ui-accordion-content { 
+       
+        width:50px;
+       
+        font-family:Arial;
+        font-size:11pt; 
+        margin-left:20px;
+        margin-bottom:13px;
+         margin-top:13px;
+        padding-left:10px;
+        border: #0A4671;
+        color: #fff;
+
+}
+   
+     /*end accordion*/
+
+     	.rightcontent{
+position: relative;
+display: inline-block;
+width: 722px;
+min-height: 523px;
+
+
+
+}
+
+    .welcome{ 
+        position: absolute;
+        color:#fff;
+        font-family:Arial;
+        font-size:10.3pt;
+        top:18px;
+        right:95px;
+    }
+
+    .welcomea {
+    position: absolute;
+    font-family:Arial;
+    font-size:10.3pt;
+    color:#fff;
+    top:18px;
+    right:25px;
+    text-decoration:none;
+}
+
+
+    .agenda{
+        position: absolute;
+         top:114px;
+         left:49px;
+    }
+      
+    .createt{
+        font-family:Arial;
+        font-size:9pt;
+        position:absolute;
+        border-color:white;
+      
+       
+    }
+    .hr1{
+         position:absolute;
+        top:72px;
+        left:20px;
+        border-top:2px solid #0A73A4;
+        width:678px;
+
+
+    }
+    .hr2{
+         position:absolute;
+        top:102px;
+        left:20px;
+        border-top:2px solid #0A73A4;
+        width:678px;
+
+
+    }
+    .nav1{
+           position:absolute;
+            top:58px;
+             left:7px;
+        }
+    ul#menu {
+    font-size: 14pt;
+    font-family:'Aurora BdCn BT';
+
+}
+       
+    ul#menu li {
+        display: inline;
+        list-style: none;
+         
+        
+    }
+
+        ul#menu li a {
+            background: none;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        ul#menu li a:hover {
+            color: #1271A3;
+            text-decoration: none;
+        }
+     ul#menu li a:{color: #1271A3;}

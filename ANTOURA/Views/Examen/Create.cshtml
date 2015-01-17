@@ -1,0 +1,27 @@
+﻿@model ANTOURA.Models.Examen
+
+<div class="agenda">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <table class="createt" border="1" cellpadding="5">
+    <tr><th>DATE</th><th>TITRE</th><th>NOTE MAXIMALE</th><th></th></tr>
+    <tr>
+        <td>@DateTime.Today.Date.ToString("dd/MM/yyyy")</td>
+        <td>@Html.TextBoxFor(m => m.title)
+            @Html.ValidationMessageFor(m => m.title)
+        </td>
+        <td>
+            @Html.TextBoxFor(m => m.overGrade)
+        @Html.ValidationMessageFor(m => m.overGrade)
+    </td>
+        <td><button  type="submit">Enregistrer</button></td>
+       
+    </tr>
+   
+
+</table>
+       
+            
+    }
+</div>
